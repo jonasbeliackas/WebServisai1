@@ -8,6 +8,7 @@ import javax.persistence.Id;
 public class ToDoItem {
 
     private long    id;
+    private long peopleID;
     private String  title;
     private boolean done;
 
@@ -15,6 +16,14 @@ public class ToDoItem {
         this.id = id;
         this.title = title;
         this.done = done;
+    }
+
+    public long getPeopleID() {
+        return peopleID;
+    }
+
+    public void setPeopleID(long peopleID) {
+        this.peopleID = peopleID;
     }
 
     public ToDoItem() {
