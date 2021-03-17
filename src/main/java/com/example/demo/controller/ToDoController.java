@@ -41,7 +41,10 @@ public class ToDoController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("Location",
                 "/todo");
-
+        if(toDoRepo.findAll().isEmpty())
+        {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
         return ResponseEntity.ok()
                 .headers(responseHeaders)
                 .body(toDoRepo.findAll());
@@ -54,7 +57,10 @@ public class ToDoController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("Location",
                 "/todo/"+id);
-
+        if(toDoRepo.findById(id).isEmpty())
+        {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
         return ResponseEntity.ok()
                 .headers(responseHeaders)
                 .body(toDoRepo.findById(id));
